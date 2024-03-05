@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <img src="../../diplomna/Images/uni-bg-logo.png" alt="USF logo" style="height: 50px;" >
+    <button class="navbar-toggler toggler-menu" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="btn-outline-primary">Menu</span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-text">
+        <li class="nav-item">
+          <a class="nav-link blackText" aria-current="page" href="../pages/homepage.php">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link blackText" href="../pages/events.php">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link blackText" href="../pages/aboutus.php">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link blackText" href="../pages/contacts.php">Contacts</a>
+        </li>
+      </ul>
+      <?php
+      if (isset($_SESSION['firstName']) && isset($_SESSION['lastName'])) { ?>
+        <ul class="navbar-nav me-1 mb-1 mb-lg-0 navbar-text">
+          <li class="nav-item">
+            <button type="button" class="btn btn-outline-primary btn-nav" onclick="window.location.href = 'profile.php';">Profile</button>
+          </li>
+        </ul>
+        <?php
+      if ($_SESSION['admin']==1) { ?>
+        <ul class="navbar-nav me-1 mb-1 mb-lg-0 navbar-text">
+          <li class="nav-item">
+            <button type="button" class="btn btn-outline-primary" onclick="window.location.href = 'eventAdd.php';">Admin</button>
+          </li>
+        </ul>
+      <?php }?>
+      <?php } else { ?>
+        <ul class="navbar-nav me-1 mb-1 mb-lg-0 navbar-text">
+          <li class="nav-item">
+            <button type="button" class="btn btn-outline-primary btn-nav" onclick="window.location.href = 'registration.php';">Register</button>
+          </li>
+        </ul>
+        <ul class="navbar-nav mr-auto mb-2 mb-lg-0 navbar-text">
+          <li class="nav-item">
+      <button type="button" class="btn btn-outline-primary btn-nav" onclick="window.location.href = 'login.php';">Login</button>
+          </li>
+      </ul>
+      <?php } ?>
+    </div>
+  </div>
+</nav>
