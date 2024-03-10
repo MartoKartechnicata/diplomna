@@ -1,0 +1,22 @@
+nav{
+    background-color: white;
+    border-bottom: solid 1px #0d6efd;
+}
+
+.align-center{
+    text-align: center;
+}
+
+.home-image{
+    height: 10rem;
+}
+
+.logo-blue{
+    color:#0d6efd;
+}
+
+.home-background{
+    background-image: url("images/TU-Sofia_1\ \(5\).JPG");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
