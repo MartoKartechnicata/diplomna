@@ -1,3 +1,8 @@
+<?php
+
+
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,10 +20,10 @@
         <?php include "../Components/header.html" ?>
     </header>
     <main>
-        <div class="container-fluid">
+        <div class="container-fluid mt-5">
             <div class="row">
                 <div class="col align-center">
-                <img class="home-image" src="../../diplomna/Images/uni-bg-logo.png" alt="USF logo" >
+                <img class="home-image" src="../../diplomna/Images/uni-bg-logo.png" alt="uni.bg logo" >
                 </div>
             </div>
             <div class="row">
