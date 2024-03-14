@@ -29,3 +29,9 @@ nav{
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.register-image{
+    height: 15rem;
+    position: relative;
+    top: 55%;
+}

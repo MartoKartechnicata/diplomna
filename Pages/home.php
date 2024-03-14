@@ -33,8 +33,8 @@ session_start();
             </div>
             <div class="row mt-3">
             <div class="col align-center">
-            <button type="button" class="btn btn-primary btn-nav" onclick="window.location.href = 'registration.php';">Регистрация</button>
-            <button type="button" class="btn btn-primary btn-nav" onclick="window.location.href = 'home.php';">Продължи като гост</button>            
+            <button type="button" class="btn btn-primary" onclick="window.location.href = 'registration.php';">Регистрация</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.href = 'home.php';">Продължи като гост</button>            
             </div>
             </div>
         </div>
