@@ -21,7 +21,6 @@ nav{
 
 .logo-blue{
     color:#0d6efd;
-    background-color: gainsboro;
 }
 
 .home-background{
@@ -31,7 +30,7 @@ nav{
 }
 
 .register-image{
-    height: 15rem;
+    height: 32vh;
     position: relative;
     top: 55%;
 }

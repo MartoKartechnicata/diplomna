@@ -33,8 +33,15 @@ session_start();
             </div>
             <div class="row mt-3">
             <div class="col align-center">
+            <?php
+            if (isset($_SESSION['firstName']) && isset($_SESSION['lastName'])) { ?>
+            <button type="button" class="btn btn-primary" onclick="window.location.href = 'profile.php';">Профил</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.href = 'universities.php';">Университети</button>
+            <?php
+            }else {?>
             <button type="button" class="btn btn-primary" onclick="window.location.href = 'registration.php';">Регистрация</button>
-            <button type="button" class="btn btn-primary" onclick="window.location.href = 'home.php';">Продължи като гост</button>            
+            <button type="button" class="btn btn-primary" onclick="window.location.href = 'home.php';">Продължи като гост</button>      
+            <?php } ?>     
             </div>
             </div>
         </div>

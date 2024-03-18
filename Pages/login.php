@@ -23,7 +23,6 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
        $data = stripslashes($data);
 
        $data = htmlspecialchars($data);
-
        return $data;
 
     }
@@ -43,13 +42,14 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         $error = true;
         echo "Please, type pass<br>";
     }
-
     if ( !$error ) {
         $stmt = $connection->prepare("SELECT * FROM user WHERE email = ?"); 
-        $stmt->execute([$email]); 
+        $stmt->execute([$email]);
 	    $result = $stmt->fetch();
+
+        $boolcheck = password_verify($pass, $result['password']);
+        echo $boolcheck;
         if (password_verify($pass, $result['password'])) {
-            echo "brat";
             $row = ($result);
 
                 echo "Logged in!";
@@ -63,12 +63,13 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
                 $_SESSION['admin'] = $row['admin'];
 
-                header("Location: home.php");
+                header("Location: universities.php");
 
                 exit();
 
         }
         else{
+            echo "ludnica";
             $error=true;
         }
 
@@ -85,7 +86,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="uni, университети, българия, образование, uni bg">
     <meta name="author" content="Martin Yordanov 19315">
-    <title>Регистрация</title>
+    <title>Влизане</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../style.css">
@@ -97,9 +98,9 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
       ?>
     </header>
     <main>
-        <?php if($error){
-        echo "Wrong email or password";
-        }?>
+        <?//php if($error){
+        //echo "Wrong email or password";
+        //}?>
         <div class="container-fluid mt-5">
 			<div class="row">
 				<div class="col-6">
