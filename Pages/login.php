@@ -98,9 +98,6 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
       ?>
     </header>
     <main>
-        <?//php if($error){
-        //echo "Wrong email or password";
-        //}?>
         <div class="container-fluid mt-5">
 			<div class="row">
 				<div class="col-6">
@@ -117,7 +114,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                     <form method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col">
-                                <h2 style="text-align:center; padding-top:5%;">ВЛИЗАНЕ</h2>
+                                <h2 class="login-form-header">ВЛИЗАНЕ</h2>
                             </div>
                         </div>
                         <div class="row mt-2">

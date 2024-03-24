@@ -34,3 +34,8 @@ nav{
     position: relative;
     top: 55%;
 }
+
+.login-form-header{
+    padding-top: 19%;
+    text-align: center;
+}
