@@ -24,7 +24,7 @@ nav{
 }
 
 .home-background{
-    background-image: url("images/TU-Sofia_1\ \(5\).JPG");
+    background-image: url("images/TU-Sofia_1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -38,4 +38,14 @@ nav{
 .login-form-header{
     padding-top: 19%;
     text-align: center;
+}
+
+.universities-container-fluid{
+    width: 200vh;
+    height: 40vh;
+}
+
+
+.uni-search{
+    width: 50vh;
 }
