@@ -23,26 +23,26 @@
       if (isset($_SESSION['firstName']) && isset($_SESSION['lastName'])) { ?>
         <ul class="navbar-nav me-1 mb-1 mb-lg-0 navbar-text">
           <li class="nav-item">
-            <button type="button" class="btn btn-outline-primary btn-nav" onclick="window.location.href = 'profile.php';">Profile</button>
+            <button type="button" class="btn btn-outline-primary btn-nav" onclick="window.location.href = 'profile.php';">Профил</button>
           </li>
         </ul>
         <?php
       if ($_SESSION['admin']==1) { ?>
         <ul class="navbar-nav me-1 mb-1 mb-lg-0 navbar-text">
           <li class="nav-item">
-            <button type="button" class="btn btn-outline-primary" onclick="window.location.href = 'eventAdd.php';">Admin</button>
+            <button type="button" class="btn btn-outline-primary" onclick="window.location.href = 'eventAdd.php';">Админ</button>
           </li>
         </ul>
       <?php }
        } else { ?>
         <ul class="navbar-nav me-1 mb-1 mb-lg-0 navbar-text">
           <li class="nav-item">
-            <button type="button" class="btn btn-outline-primary btn-nav" onclick="window.location.href = 'registration.php';">Register</button>
+            <button type="button" class="btn btn-outline-primary btn-nav" onclick="window.location.href = 'registration.php';">Регистрация</button>
           </li>
         </ul>
         <ul class="navbar-nav mr-auto mb-2 mb-lg-0 navbar-text">
           <li class="nav-item">
-      <button type="button" class="btn btn-outline-primary btn-nav" onclick="window.location.href = 'login.php';">Login</button>
+      <button type="button" class="btn btn-outline-primary btn-nav" onclick="window.location.href = 'login.php';">Влизане</button>
           </li>
       </ul>
       <?php } ?>

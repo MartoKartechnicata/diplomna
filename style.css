@@ -47,5 +47,13 @@ nav{
 
 
 .uni-search{
-    width: 50vh;
+    width: 100vh;
+}
+
+.card-bg-img{
+    height: 50vh;
+}
+
+.editors-choice-card{
+    height: 10vh;
 }
