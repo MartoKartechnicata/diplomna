@@ -20,7 +20,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="uni, университети, българия, образование, uni bg">
     <meta name="author" content="Martin Yordanov 19315">
-    <title>Търсене</title>
+    <title>Резултати от търсене</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../style.css">
@@ -81,7 +81,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h5 class="card-title"><?php echo $row['Name']." - ".$row['City']?></h5>
                 <p class="card-text"><i style='font-size:17px' class='fas'>&#xf3c5;</i> <?php echo $row['Address'] ?></p>
                 <div class="mt-auto">
-                    <a href="#" class="btn btn-primary">Виж повече</a>
+                <form action="university.php?searching=true" method="POST" class="form-inline input-group uni-search">
+                    <input type="hidden" name="uni_id" value="<?php echo $row['id']; ?>">
+                    <input type="submit" value="Виж повече" class="btn btn-primary input-group-addon" style="border-radius: 5px !important;">
+                </form>
                 </div>
             </div>
         </div> 

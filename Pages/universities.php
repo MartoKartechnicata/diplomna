@@ -51,7 +51,7 @@ session_start();
                                 <img style="height:20rem" src="../Images/TU-Sofia_1.jpg" alt="sans"/>
                             </div>
                             <div class="col-7 d-flex flex-column">
-                                <h3 class="card-title">Технически университет - София</h3>
+                                <h3 class="card-title">Технически Университет - София</h3>
                                 <p class="card-text">ТУ-София е първият и най-големият, подпомогнал създаването на повечето от висшите технически училища у нас, с най-високата акредитационна оценка от всички ВУ в България, който задава образователните стандарти и въвежда националните приоритети за развитие на образованието и науката. Университетът е водещ в областта на нанотехнологиите, виртуалното инженерство, енергийната ефективност, възобновяемите енергийни източници инженерната екология и инженерния дизайн, в използването на най-добрите практики, като философия и основополагащ принцип в инженерната дейност. Абсолвентите на ТУ са с добра заплата и успешна кариера. Не е случаен и фактът, че повече от десетилетие, ръководителите на всички работодателски организации в страната са възпитаници на Университета.</p>
                             <div class="mt-auto align-right">
                                 <a href="#" class="btn btn-primary align-right">Виж повече</a>
@@ -87,8 +87,9 @@ session_start();
                             <h5 class="card-title"><?php echo $university['Name']." - ".$university['City']?></h5>
                             <p class="card-text"><i style='font-size:17px' class='fas'>&#xf3c5;</i> <?php echo $university['Address'] ?></p>
                             <div class="mt-auto">
-                                <form action="university.php?university=<?php echo $row['id']?>" method="POST" class="form-inline input-group uni-search">
-                                    <input type="submit" value="Виж повече" class="btn btn-primary input-group-addon">
+                                <form action="university.php?uni=<?php echo $university['id'] ?>" method="POST" class="form-inline input-group uni-search">
+                                    <input type="hidden" name="uni_id" value="<?php echo $university['id']; ?>">
+                                    <input type="submit" value="Виж повече" class="btn btn-primary input-group-addon" style="border-radius: 5px !important;">
                                 </form>
                             </div>
                         </div>
