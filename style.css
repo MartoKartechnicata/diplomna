@@ -15,18 +15,31 @@ nav{
     text-align: end;
 }
 
-.home-image{
-    height: 10rem;
-}
 
 .logo-blue{
     color:#0d6efd;
 }
 
 .home-background{
-    background-image: url("images/TU-Sofia_1.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color:#0d6efd;
+}
+
+.home-quote{
+    font-size: 2.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color:white;
+}
+
+.home-quote-padding{
+    padding-top: 16%;
+    text-align: center;
+}
+
+.home-image{
+    height: 40vh;
+    position: relative;
+    top: 30%;
 }
 
 .register-image{
@@ -56,4 +69,32 @@ nav{
 
 .editors-choice-card{
     height: 10vh;
+}
+
+.overflow-auto::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+}
+  
+.overflow-auto::-webkit-scrollbar-track {
+    background-color:aliceblue;
+    border-radius: 20px; 
+}
+  
+.overflow-auto::-webkit-scrollbar-thumb {
+    background-color: #0d6efd;
+    border-radius: 20px; 
+}
+
+.uni-card-height{
+    height: 250px;
+}
+
+.uni-contacts-text{
+    font-size: 22px;
+    font-weight: normal;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.uni-card-header{
+    font-weight: bold;
 }

@@ -17,34 +17,45 @@ session_start();
 </head>
 <body class="home-background">
     <header>
-        <?php include "../Components/header.html" ?>
+      <?php 
+      include "../components/header.html" 
+      ?>
     </header>
     <main>
         <div class="container-fluid mt-5">
-            <div class="row">
-                <div class="col align-center">
-                <img class="home-image" src="../../diplomna/Images/uni-bg-logo.png" alt="uni.bg logo" >
+			<div class="row">
+				<div class="col-6">
+                    <div class="container" >
+                        <div class="row align-center">
+                            <div class="col">
+                                <img class="home-image" src="../../diplomna/Images/uni-bg-logo-white.png" alt="uni.bg logo">
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="col-6">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col home-quote-padding">
+                                <p class="home-quote"><q>Посоката, в която се насочва образованието на един човек от самото начало, ще предопредели бъдещия му живот.</q> - Платон</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col pt-2 align-center">
+                            <?php
+                            if (isset($_SESSION['firstName']) && isset($_SESSION['lastName'])) { ?>
+                                <a href="universities.php" class="btn btn-outline-light">Университети</a>
+                                <a href="login.php" class="btn btn-light">Профил</a>
+                            <?php } else { ?>
+                                <a href="universities.php" class="btn btn-outline-light">Продължи като гост</a>
+                                <a href="login.php" class="btn btn-light">Влез</a>
+                            <?php } ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col align-center">
-                <h1 class="logo-blue">Добре дошли!</h1>
-                </div>
-            </div>
-            <div class="row mt-3">
-            <div class="col align-center">
-            <?php
-            if (isset($_SESSION['firstName']) && isset($_SESSION['lastName'])) { ?>
-            <button type="button" class="btn btn-primary" onclick="window.location.href = 'profile.php';">Профил</button>
-            <button type="button" class="btn btn-primary" onclick="window.location.href = 'universities.php';">Университети</button>
-            <?php
-            }else {?>
-            <button type="button" class="btn btn-primary" onclick="window.location.href = 'registration.php';">Регистрация</button>
-            <button type="button" class="btn btn-primary" onclick="window.location.href = 'home.php';">Продължи като гост</button>      
-            <?php } ?>     
-            </div>
-            </div>
-        </div>
+	    </div>
     </main>
 </body>
 </html>

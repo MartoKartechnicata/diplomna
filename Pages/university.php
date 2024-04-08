@@ -31,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/9ca68eee12.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -58,13 +57,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-4">
-                    
+            <div class="row mt-3">
+                <div class="col-6">
+                    <div class="card border-primary" style="border-right: none; border-bottom-right-radius: 0px; border-top-right-radius: 0px;">
+                        <div class="row card-body overflow-auto uni-card-height">
+                            <div class="col">
+                            <h2 class="card-title mb-2 uni-card-header">Специалности</h2>
+                            <ul>
+                                <?php while ($major = $resultMajors->fetch_assoc()){ ?>
+                                    <li><?php echo $major['major'] ?></li>
+                                <?php } ?>
+                            </ul>
+                            <a href="<?php echo $row['Plans']?>" class="btn btn-primary ml-5" target="_blank">Учебни планове</a>
+                            </div>
+                        </div>                 
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-primary uni-card-height">
+                        <div class="row card-body">
+                            <div class="col">
+                                <h2 class="card-title mb-2 uni-card-header">Контакти</h2>
+                                <p class="card-text uni-contacts-text"><i class='fas'>&#xf3c5;</i> <?php echo $row['Address'] ?></p>
+                                <p class="card-text uni-contacts-text"><i class="fa-solid fa-envelope"></i> <?php echo $row['Phone'] ?></p>
+                                <p class="card-text uni-contacts-text"><i class="fa-solid fa-phone"></i> <?php echo $row['Email'] ?></p>
+                            </div>
+                        </div>                 
+                    </div>
                 </div>
             </div>
-        </div>
-        
         <?php
     }
     ?>
