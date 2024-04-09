@@ -48,7 +48,6 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 	    $result = $stmt->fetch();
 
         $boolcheck = password_verify($pass, $result['password']);
-        echo $boolcheck;
         if (password_verify($pass, $result['password'])) {
             $row = ($result);
 
@@ -62,6 +61,9 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                 $_SESSION['lastName'] = $row['lastName'];
 
                 $_SESSION['admin'] = $row['admin'];
+
+                $_SESSION['username'] = $row['username'];
+
 
                 header("Location: universities.php");
 

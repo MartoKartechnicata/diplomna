@@ -11,6 +11,7 @@ if ( isset( $_POST['submit'] ) ) {
 
 	$fName = $_POST['firstName']; 
 	$lName = $_POST['lastName'];
+    $uName = $_POST['username'];
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	$passwordC = $_POST['passwordC'];
@@ -25,6 +26,11 @@ if ( isset( $_POST['submit'] ) ) {
 
 	if ( !$lName ) {
 		echo "<center style='color:red;'>Please enter your last name</center>";
+		$error = true;
+	}
+
+    if ( !$uName ) {
+		echo "<center style='color:red;'>Please enter your username</center>";
 		$error = true;
 	}
 	
@@ -52,8 +58,8 @@ if ( isset( $_POST['submit'] ) ) {
 	}
 
 	if ( !$error ) {
-		$sql = "INSERT INTO user (firstName, lastName, email, password) VALUES (?,?,?,?)";
-		$result = $connection->prepare($sql)->execute([$fName, $lName, $email, password_hash($password, PASSWORD_DEFAULT)]);
+		$sql = "INSERT INTO user (firstName, lastName, email, password, username) VALUES (?,?,?,?,?)";
+		$result = $connection->prepare($sql)->execute([$fName, $lName, $email, password_hash($password, PASSWORD_DEFAULT), $uName]);
 		
 		
 		if ( $result ) {
@@ -130,6 +136,14 @@ if ( isset( $_POST['submit'] ) ) {
                         <div class="row mt-2">
                             <div class="col">
                                 <div class="form-floating">
+                                    <input type="text" class="form-control" id="UName" name="username" placeholder="Потребителско Име">
+                                    <label for="fName">Потребителско Име</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <div class="form-floating">
                                     <input type="email" class="form-control" id="email" name="email" placeholder="email адрес">
                                     <label for="email">Email адрес</label>
                                 </div>
@@ -153,7 +167,7 @@ if ( isset( $_POST['submit'] ) ) {
                         </div>
                         <div class="row mt-3 align-center">
                             <div class="col">
-                                <input class="btn btn-primary" type="submit" name="submit" value="Register">  
+                                <input class="btn btn-primary" type="submit" name="submit" value="Регистрация">  
                             </div>
                         </div>
                     </form>

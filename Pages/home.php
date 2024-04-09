@@ -45,7 +45,7 @@ session_start();
                             <?php
                             if (isset($_SESSION['firstName']) && isset($_SESSION['lastName'])) { ?>
                                 <a href="universities.php" class="btn btn-outline-light">Университети</a>
-                                <a href="login.php" class="btn btn-light">Профил</a>
+                                <a href="profile.php" class="btn btn-light">Профил</a>
                             <?php } else { ?>
                                 <a href="universities.php" class="btn btn-outline-light">Продължи като гост</a>
                                 <a href="login.php" class="btn btn-light">Влез</a>
