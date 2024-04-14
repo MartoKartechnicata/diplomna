@@ -1,6 +1,16 @@
 <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "diplomnarabota";
 
-
+try {
+	$connection = mysqli_connect($servername, $username, $password, $database);
+	// echo "Connected successfully";
+} catch(PDOException $e) {
+	echo "Connection failed: " . $e->getMessage();
+}
+$error=false;
 session_start();
 ?>
 
@@ -28,13 +38,39 @@ session_start();
         <?php if (isset($_SESSION['firstName']) && isset($_SESSION['lastName'])) { ?>
             <div class="row mt-3">
                 <div class="col d-flex justify-content-center">
-                    <form action="search.php?searching=true" method="POST" class="form-inline input-group uni-search">
-                        <input class="form-control"  name="city-search" type="search" placeholder="Търси публикации" value="">
+                    <form action="forum-search.php?searching=true" method="POST" class="form-inline input-group uni-search">
+                        <input class="form-control"  name="word-search" type="search" placeholder="Търси публикации" value="">
                         <input type="submit" value="Търсене" class="btn btn-outline-primary input-group-addon">
                     </form>
                     <a href="forum-make-post.php" class="btn btn-primary" style="margin-left: 1vh !important;">Добави Публикация</a>
                 </div>
             </div>
+            <div class="row mt-5 align-center">
+                <div class="col">
+                    <h2>Публикации</h2>
+                </div>
+            </div>
+
+            <?php
+                $posts = mysqli_query($connection, "SELECT * FROM forum ORDER BY idforum DESC");
+                while ($row = $posts->fetch_assoc()){
+                $main=mysqli_query($connection, "Select * from forum where idforum='{$row["idforum"]}'");
+                $post=$main->fetch_assoc();
+                $main2=mysqli_query($connection, "Select * from user where user.id='{$row["user_id"]}'");
+                $user=$main2->fetch_assoc();
+            ?>  
+            <div class="row mt-3">
+                <div class="col d-flex justify-content-center">
+                    <div class="card" style="width: 150vh;">
+                        <div class="card-header"><?php echo $user['username'] ?></div>
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $post['title'] ?></h5>
+                            <p class="card-text"><?php echo $post['post'] ?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
         </div>
     <?php } else { ?>
         <div class="container mt-5 no-profile">
@@ -53,3 +89,4 @@ session_start();
     <?php } ?>
     </main>
 </body>
+</html>

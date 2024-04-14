@@ -52,7 +52,7 @@ if ( isset( $_POST['submit'] ) ) {
 	$stmt = $connection->prepare("SELECT * FROM user WHERE email = ?"); 
         $stmt->execute([ $email]); 
 	    $result = $stmt->fetch();
-	if ($result) {
+	if ($error) {
 		echo "Error";
 		$error=true;
 	}

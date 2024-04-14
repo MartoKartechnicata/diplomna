@@ -53,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $result = mysqli_query($connection, $uniSearch);
+    
     ?>
         <div class="container-fluid universities-container-fluid mt-3">
             <div class="row">
@@ -72,7 +73,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="row mt-5">
 
 <?php
-    while ($row = $result->fetch_assoc()){
+    if(mysqli_num_rows($result) == 0) { ?>
+    <h4 class="align-center">Няма намерени резултати</h4>
+    <?php } else {
+        while ($row = $result->fetch_assoc()){
 ?>
     <div class="col-4 mb-4 d-flex justify-content-center">
         <div class="card border-primary" style="width: 29rem; height: 28rem">
@@ -91,6 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 <?php
     }
+  }
 }
 ?>
 </main>
