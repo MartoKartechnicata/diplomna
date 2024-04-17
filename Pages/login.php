@@ -64,6 +64,8 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
                 $_SESSION['username'] = $row['username'];
 
+                $_SESSION['admin'] = $row['admin'];
+
 
                 header("Location: universities.php");
 
