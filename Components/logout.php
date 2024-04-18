@@ -6,5 +6,5 @@ session_unset();
 
 session_destroy();
 
-header("Location: ../pages/home.php");
+header("Location: ../pages/login.php");
 ?>
