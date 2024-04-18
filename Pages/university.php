@@ -79,8 +79,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="col">
                                 <h2 class="card-title mb-2 uni-card-header">Контакти</h2>
                                 <p class="card-text uni-contacts-text"><i class='fas'>&#xf3c5;</i> <?php echo $row['Address'] ?></p>
-                                <p class="card-text uni-contacts-text"><i class="fa-solid fa-envelope"></i> <?php echo $row['Phone'] ?></p>
-                                <p class="card-text uni-contacts-text"><i class="fa-solid fa-phone"></i> <?php echo $row['Email'] ?></p>
+                                <p class="card-text uni-contacts-text"><i class="fa-solid fa-envelope"></i> <?php echo $row['Email'] ?></p>
+                                <p class="card-text uni-contacts-text"><i class="fa-solid fa-phone"></i> <?php echo $row['Phone'] ?></p>
                             </div>
                         </div>                 
                     </div>
