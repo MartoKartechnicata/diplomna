@@ -20,9 +20,19 @@ if ( isset( $_POST['submit'] ) ) {
     $plans = $_POST['Plans'];
 	$desc = $_POST['Description'];
 
+    if (isset($_FILES['Picture']) && $_FILES['Picture']['error'] === UPLOAD_ERR_OK) {
+        $picture_name = $_FILES['Picture']['name'];
+        $picture_tmp = $_FILES['Picture']['tmp_name'];
+        $picture_path = '../Images/' . $picture_name;
+    
+        move_uploaded_file($picture_tmp, $picture_path);
+    } else {
+        $picture_name = null;
+    }
+
 
 	$error = false;
-    if ( !$name || !$city || !$address || !$phone || !$email || !$site || !$plans || !$desc) {
+    if ( !$name || !$city || !$address || !$phone || !$email || !$site || !$plans || !$desc || !$picture_name) {
 		$error = true;
 	}
 
@@ -34,15 +44,15 @@ if ( isset( $_POST['submit'] ) ) {
 		$error=true;
 	}
 
-	if ( !$error ) {
-		$sql = "INSERT INTO university (Name, City, Phone, Email, Address, Description, site, Plans) VALUES (?,?,?,?,?,?,?,?)";
-		$result = $connection->prepare($sql)->execute([$name, $city, $phone, $email, $address, $desc, $site, $plans]);
-		
-		
-		if ( $result ) {
+	if (!$error) {
+        $sql = "INSERT INTO university (Name, City, Phone, Email, Address, Description, site, Plans, Picture) VALUES (?,?,?,?,?,?,?,?,?)";
+        $result = $connection->prepare($sql)->execute([$name, $city, $phone, $email, $address, $desc, $site, $plans, $picture_name]);
+        
+        if ($result) {
             header("Location: admin-add-uni.php");
-		}
-	}
+            echo "evala";
+        }
+    }
 	
 	
 	$name = htmlspecialchars( $name, ENT_QUOTES );
@@ -53,6 +63,7 @@ if ( isset( $_POST['submit'] ) ) {
 	$desc = htmlspecialchars( $desc, ENT_QUOTES );
 	$site = htmlspecialchars( $site, ENT_QUOTES );
 	$plans = htmlspecialchars( $plans, ENT_QUOTES );
+    $picture_name = htmlspecialchars( $picture_name, ENT_QUOTES );
 	}
 ?>
 
@@ -61,9 +72,7 @@ if ( isset( $_POST['submit'] ) ) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="uni, университети, българия, образование, uni bg">
-    <meta name="author" content="Martin Yordanov 19315">
-    <title>Редактиране на профил</title>
+    <title>Добавяне на университет</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../style.css">
@@ -150,6 +159,12 @@ if ( isset( $_POST['submit'] ) ) {
                                 <textarea class="form-control" id="description" name="Description" placeholder="Описание" style="resize: none; height: 15rem;"></textarea>                  
                                     <label for="descrpiption">Описание</label>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                                    <label for="picture">Снимка: </label>
+                                    <input type="file" class="form-control" id="picture" name="Picture">
                             </div>
                         </div>
                         <div class="row mt-3 align-center">
