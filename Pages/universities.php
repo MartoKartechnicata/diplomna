@@ -47,9 +47,9 @@ session_start();
                     <div class="card border-primary">
                         <div class="row card-body">
                             <div class="col d-flex flex-column">
-                                <img style="height:20rem" src="../Images/TU-Sofia_1.jpg" alt="sans"/>
+                                <img class="tu-img-mobile" src="../Images/TU-Sofia_1.jpg" alt="sans"/>
                             </div>
-                            <div class="col-7 d-flex flex-column">
+                            <div class="col-md-7 col-12 d-flex flex-column">
                                 <h3 class="card-title">Технически Университет - София</h3>
                                 <p class="card-text">ТУ-София е първият и най-големият, подпомогнал създаването на повечето от висшите технически училища у нас, с най-високата акредитационна оценка от всички ВУ в България, който задава образователните стандарти и въвежда националните приоритети за развитие на образованието и науката. Университетът е водещ в областта на нанотехнологиите, виртуалното инженерство, енергийната ефективност, възобновяемите енергийни източници инженерната екология и инженерния дизайн, в използването на най-добрите практики, като философия и основополагащ принцип в инженерната дейност. Абсолвентите на ТУ са с добра заплата и успешна кариера. Не е случаен и фактът, че повече от десетилетие, ръководителите на всички работодателски организации в страната са възпитаници на Университета.</p>
                             <div class="mt-auto align-right">
@@ -82,7 +82,7 @@ session_start();
             $main=mysqli_query($connection, "Select * from university where university.id='{$row["id"]}'");
             $university=$main->fetch_assoc();
         ?>           
-                <div class="col-4 mb-4 d-flex justify-content-center">
+                <div class="col-12 col-md-4 mb-4 d-flex justify-content-center">
                     <div class="card border-primary" style="width: 29rem; height: 28rem">
                         <img src="../Images/<?php echo $university['Picture'] ?>" class="card-img-top" alt="...">
                         <div class="card-body d-flex flex-column">

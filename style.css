@@ -53,10 +53,6 @@ nav{
     text-align: center;
 }
 
-.universities-container-fluid{
-    width: 200vh;
-    height: 40vh;
-}
 
 
 .uni-search{
@@ -107,4 +103,16 @@ nav{
 
 header{
     text-align: center;
+}
+
+.tu-img-mobile{
+    height: 10rem;
+}
+
+@media screen and (min-width: 768px) {
+
+.tu-img-mobile{
+    height: 20rem ;
+}
+
 }
