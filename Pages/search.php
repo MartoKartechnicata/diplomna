@@ -47,9 +47,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif(!$major_search) {
         $uniSearch="SELECT * FROM university where City='$city_search'";
     } elseif(!$city_search){
-        $uniSearch="SELECT * FROM university join university_majors on university.id=university_id join major on major_id=major.id where major.major='Киберсигурност'";
+        $uniSearch="SELECT * FROM university join
+        university_majors on university.id=university_id join major on
+        major_id=major.id where major.major='Киберсигурност'";
     }else{
-        $uniSearch="SELECT * FROM university join university_majors on university.id=university_id join major on major_id=major.id where major.major='Киберсигурност' and university.City='$city_search'";
+        $uniSearch="SELECT * FROM university join university_majors on
+        university.id=university_id join major on major_id=major.id 
+        where major.major='Киберсигурност' and university.City='$city_search'";
     }
 
     $result = mysqli_query($connection, $uniSearch);

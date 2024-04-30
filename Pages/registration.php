@@ -52,7 +52,7 @@ if ( isset( $_POST['submit'] ) ) {
 	$stmt = $connection->prepare("SELECT * FROM user WHERE email = ?"); 
         $stmt->execute([ $email]); 
 	    $dup = $stmt->fetch();
-	if (!$dup) {
+	if ($dup) {
 		echo "Error";
 		$error=true;
 	}

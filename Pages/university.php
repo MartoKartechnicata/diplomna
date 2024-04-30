@@ -16,7 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $university = "SELECT * FROM university where id='$uni_id'";
     $result = mysqli_query($connection, $university);
     $row = $result->fetch_assoc();
-    $majors = "SELECT * FROM major join university_majors on major.id=major_id join university on university_id=university.id where university.id='$uni_id'";
+    $majors = "SELECT * FROM major join university_majors on major.id=major_id
+    join university on university_id=university.id where university.id='$uni_id'";
     $resultMajors = mysqli_query($connection, $majors);
 ?>
 

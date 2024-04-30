@@ -118,7 +118,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                     <form method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col">
-                                <h2 class="login-form-header">ВЛИЗАНЕ</h2>
+                                <h2 class="login-form-header">ВХОД</h2>
                             </div>
                         </div>
                         <div class="row mt-2">
@@ -139,7 +139,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                         </div>
                         <div class="row mt-3 align-center">
                             <div class="col">
-                                <input class="btn btn-primary" type="submit" name="submit" value="Log in">  
+                                <input class="btn btn-primary" type="submit" name="submit" value="Вход">  
                             </div>
                         </div>
                     </form>

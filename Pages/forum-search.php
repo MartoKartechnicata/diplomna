@@ -34,15 +34,7 @@ session_start();
     ?>
     </header>
     <main>
-        <?php 
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $search=$_POST['word-search'];
-            if(!$search){
-                header("Location: forum.php");
-            }
-            $search2="SELECT * FROM forum where post like '%$search%' or title like '%$search%' ORDER BY idforum DESC;";
-            $result = mysqli_query($connection, $search2);
-        ?>
+        
 
         <div class="row mt-3">
                 <div class="col d-flex justify-content-center">
@@ -58,7 +50,15 @@ session_start();
                     <h2>Публикации</h2>
                 </div>
             </div>
-            <?php
+            <?php 
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $search=$_POST['word-search'];
+            if(!$search){
+                header("Location: forum.php");
+            }
+            $search2="SELECT * FROM forum where post like '%$search%' or title like '%$search%' ORDER BY idforum DESC;";
+            $result = mysqli_query($connection, $search2);
+        
             if(mysqli_num_rows($result) == 0) { ?>
                 <h4 class="align-center">Няма намерени резултати</h4>
                 <?php } else {

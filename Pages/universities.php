@@ -100,7 +100,7 @@ session_start();
         <?php
         }
         ?>
-        </div>    
+             </div>    
         </div>
     </main>
 </body>

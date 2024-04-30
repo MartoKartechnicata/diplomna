@@ -48,7 +48,7 @@ session_start();
                                 <a href="profile.php" class="btn btn-light">Профил</a>
                             <?php } else { ?>
                                 <a href="universities.php" class="btn btn-outline-light">Продължи като гост</a>
-                                <a href="login.php" class="btn btn-light">Влез</a>
+                                <a href="login.php" class="btn btn-light">Вход</a>
                             <?php } ?>
                             </div>
                         </div>

@@ -79,7 +79,8 @@ if ( !$title ) {
 						  <div class="row mt-2 align-center">
                 <div class="col">
                   <div class="form">
-                    <textarea class="form-control" id="bodyText" name="bodyText" placeholder="Тяло" style="resize: none; height: 15rem;"></textarea>                  
+                    <textarea class="form-control" id="bodyText" name="bodyText" placeholder="Тяло"
+                    style="resize: none; height: 15rem;"></textarea>                  
                   </div>
                 </div>
               </div>
