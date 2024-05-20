@@ -42,6 +42,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         $error = true;
         echo "Please, type pass<br>";
     }
+
     if ( !$error ) {
         $stmt = $connection->prepare("SELECT * FROM user WHERE email = ?"); 
         $stmt->execute([$email]);
@@ -104,7 +105,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     <main>
         <div class="container-fluid mt-5">
 			<div class="row">
-				<div class="col-6">
+				<div class="col-6 d-none d-lg-block">
                     <div class="container" >
                         <div class="row align-center">
                             <div class="col">
@@ -113,7 +114,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                         </div>
                     </div>
 				</div>
-				<div class="col-6">
+				<div class="col">
                     <div class="container">
                     <form method="post" enctype="multipart/form-data">
                         <div class="row">

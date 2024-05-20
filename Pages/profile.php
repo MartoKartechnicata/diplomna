@@ -35,7 +35,7 @@ session_start();
     <h1 class="text-center">Профил</h1>
         <div class="container-fluid pt-2">
           <div class="row">
-            <div class="col-3">
+            <div class="col-12 col-md-3">
               <div class="container text-center">
                 <div class="row">
                   <div class="col">
@@ -48,8 +48,14 @@ session_start();
                 </div>
               </div>
             </div>
-            <div class="col-9">
+            <div class="col-12 col-md-9">
               <div class="container">
+                <div class="row mt-3">
+                  <div class="col">
+                    <h3 class="text-center">Публикации</h3>
+                  </div>
+                </div>
+
             <?php
                 $posts = mysqli_query($connection, "SELECT * FROM forum WHERE user_id='{$_SESSION['user_id']}' ORDER BY idforum DESC");
                 while ($row = $posts->fetch_assoc()){

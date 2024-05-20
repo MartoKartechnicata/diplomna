@@ -57,6 +57,18 @@ if ( isset( $_POST['submit'] ) ) {
 		$error=true;
 	}
 
+    
+    if (strlen($password) < 8) {
+		echo "<center style='color:red;'>The password must be at least 8 characters long</center>";
+        $error = true;
+    }
+
+    if (!preg_match('/[a-zA-Z]/', $password) || !preg_match('/[0-9]/', $password)) {
+		echo "<center style='color:red;'>The password must contain at least one number and at least one letter</center>";
+        $error = true;
+    }
+    
+
 	if ( !$error ) {
 		$sql = "INSERT INTO user (firstName, lastName, email, password, username) VALUES (?,?,?,?,?)";
 		$result = $connection->prepare($sql)->execute([$fName, $lName, $email, password_hash($password, PASSWORD_DEFAULT), $uName]);
@@ -100,7 +112,7 @@ if ( isset( $_POST['submit'] ) ) {
     <main>
         <div class="container-fluid mt-5">
 			<div class="row">
-				<div class="col-6">
+				<div class="col-6 d-none d-lg-block">
                     <div class="container" >
                         <div class="row align-center">
                             <div class="col">
@@ -109,7 +121,7 @@ if ( isset( $_POST['submit'] ) ) {
                         </div>
                     </div>
 				</div>
-				<div class="col-6">
+				<div class="col">
                     <div class="container">
                     <form method="post" enctype="multipart/form-data">
                         <div class="row">

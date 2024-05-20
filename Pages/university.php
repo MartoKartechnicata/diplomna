@@ -47,9 +47,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="card border-primary" style="border-top: none; border-top-left-radius: 0px; border-top-right-radius: 0px;">
                         <div class="row card-body">
                             <div class="col d-flex flex-column">
-                                <img style="height:20rem" src="../Images/<?php echo $row['Picture'] ?>" alt="sans"/>
+                                <img class="uni-image img-fluid" src="../Images/<?php echo $row['Picture'] ?>" alt="sans"/>
                             </div>
-                            <div class="col-7 d-flex flex-column">
+                            <div class="col-12 col-md-7 d-flex flex-column">
                                 <h2 class="card-title"><?php echo $row['Name']." - ".$row['City'] ?></h2>
                                 <p class="card-text"><?php echo $row['Description'] ?></p>
                             <div class="mt-auto align-right">
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-6">
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
                     <div class="card border-primary" style="border-right: none; border-bottom-right-radius: 0px; border-top-right-radius: 0px;">
                         <div class="row card-body overflow-auto uni-card-height">
                             <div class="col">
@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>                 
                     </div>
                 </div>
-                <div class="col">
+                <div class="col mb-1 mb-md-0">
                     <div class="card border-primary uni-card-height">
                         <div class="row card-body">
                             <div class="col">

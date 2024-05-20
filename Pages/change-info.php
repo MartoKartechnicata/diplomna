@@ -54,6 +54,18 @@ if (isset($_POST['submit'])) {
     $stmt->execute([$email]);
     $user = $stmt->fetch();
 
+        
+    if (strlen($passwordNew) < 8) {
+		echo "<center style='color:red;'>The password must be at least 8 characters long</center>";
+        $error = true;
+    }
+
+    if (!preg_match('/[a-zA-Z]/', $passwordNew) || !preg_match('/[0-9]/', $passwordNew)) {
+		echo "<center style='color:red;'>The password must contain at least one number and at least one letter</center>";
+        $error = true;
+    }
+    
+
     if (!$error) {
         if ($user) {
             if (password_verify($password, $user['password'])) {

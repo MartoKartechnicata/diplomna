@@ -24,17 +24,17 @@ session_start();
     <main>
         <div class="container-fluid mt-5">
 			<div class="row">
-				<div class="col-6">
-                    <div class="container" >
+				<div class="col-12 col-md-6">
+                    <div class="container-fluid" >
                         <div class="row align-center">
                             <div class="col">
-                                <img class="home-image" src="../../diplomna/Images/uni-bg-logo-white.png" alt="uni.bg logo">
+                                <img class="home-image img-fluid" src="../../diplomna/Images/uni-bg-logo-white.png" alt="uni.bg logo">
                             </div>
                         </div>
                     </div>
 				</div>
-				<div class="col-6">
-                    <div class="container">
+				<div class="col">
+                    <div class="container-fluid">
                         <div class="row">
                             <div class="col home-quote-padding">
                                 <p class="home-quote"><q>Посоката, в която се насочва образованието на един човек от самото начало, ще предопредели бъдещия му живот.</q> - Платон</p>
